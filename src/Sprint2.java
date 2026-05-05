@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Sprint2 {
     public static void main(String[] args) {
         int dis;
-        int posicao = 1, contador = 0, avanço = 0;
+        int posicao = 1, contador = 0, avanco = 0;
         double valor = 0;
-        String comando;
+        String comando = "";
         Scanner sc = new Scanner(System.in);
 
         //------------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ public class Sprint2 {
         //---------------------------------------------------------------------------------
 
         //Loop
-        do {
+        while (!(comando.equalsIgnoreCase("Sair"))) {
             //Contador de comandos feitos
             System.out.println("Numerro de comandos realizados: " + contador);
             contador++;
@@ -59,57 +59,57 @@ public class Sprint2 {
                     //Posição 1
                     if (dis == 7 && comando.equalsIgnoreCase("Frente") && posicao == 1) {
                         posicao++;
-                        avanço = posicao;
+                        avanco = posicao;
                         valor = dis + valor;
                     }
 
                     //Posição 2
                     else if (dis == 3 && comando.equalsIgnoreCase("Direita") && posicao == 2) {
                         posicao++;
-                        avanço = posicao;
+                        avanco = posicao;
                         valor = dis + valor;
                     }
 
                     //Posição 3
                     else if (dis == 3 && comando.equalsIgnoreCase("Trás") && posicao == 3) {
                         posicao++;
-                        avanço = posicao;
+                        avanco = posicao;
                         valor = dis + valor;
                     }
 
                     //Posição 4
                     else if (dis == 1 && comando.equalsIgnoreCase("Esquerda") && posicao == 4) {
                         posicao++;
-                        avanço = posicao;
+                        avanco = posicao;
                         valor = dis + valor;
                     }
 
                     //Posição 5
                     else if (dis == 3 && comando.equalsIgnoreCase("Trás") && posicao == 5) {
                         posicao++;
-                        avanço = posicao;
+                        avanco = posicao;
                         valor = dis + valor;
                     }
 
                     //Posição 6
                     else if (dis == 2 && comando.equalsIgnoreCase("Direita") && posicao == 6) {
-                        avanço = posicao;
+                        avanco = posicao;
                         valor = dis + valor;
                         comando = "Sair";
                     }
 
                     else {
                         System.out.println("Comando inválido!");
-                        avanço = 0;
+                        avanco = 0;
                         System.out.println(" ");
                     }
                 }
             }
-            if (avanço == posicao){
+            if (avanco == posicao){
                 System.out.println("Comando válido (°w°)");
                 System.out.println(" ");
             }
-        }while (!(comando.equalsIgnoreCase("Sair"))) ;
+        }
 
         if (posicao != 6) {
             System.out.println("Falha em atingir a Saída");
