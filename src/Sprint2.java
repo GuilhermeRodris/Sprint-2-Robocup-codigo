@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Sprint2 {
     public static void main(String[] args) {
         int dis;
-        int posicao = 1, contador = 0, avanco = 0;
+        int posicao = 1, contador = 0, avanco;
         double valor = 0;
         String comando = "";
         Scanner sc = new Scanner(System.in);
@@ -29,15 +29,18 @@ public class Sprint2 {
 
         //---------------------------------------------------------------------------------
 
-        //Loop
+        //Loop do labirinto
         while (!(comando.equalsIgnoreCase("Sair"))) {
             //Contador de comandos feitos
-            System.out.println("Numerro de comandos realizados: " + contador);
+            System.out.println("Númerro de comandos realizados: " + contador);
             contador++;
+            avanco = 0;
 
             System.out.print("Digite o comando desejado: ");
             comando = sc.next();
 
+            //-------------------------------------------------------------------------------
+            // Validação de comandos de direção e distancia a ser percorrida
             if (!comando.equalsIgnoreCase("Direita")
                     && !comando.equalsIgnoreCase("Esquerda")
                     && !comando.equalsIgnoreCase("Frente")
@@ -56,6 +59,10 @@ public class Sprint2 {
                 }
                 else {
 
+                    //----------------------------------------------------------------------------
+
+                    //Sequencia das posições do percurso
+
                     //Posição 1
                     if (dis == 7 && comando.equalsIgnoreCase("Frente") && posicao == 1) {
                         posicao++;
@@ -68,6 +75,7 @@ public class Sprint2 {
                         posicao++;
                         avanco = posicao;
                         valor = dis + valor;
+
                     }
 
                     //Posição 3
@@ -99,13 +107,12 @@ public class Sprint2 {
                     }
 
                     else {
-                        System.out.println("Comando inválido!");
-                        avanco = 0;
+                        System.out.println("Comando inválido! (*_*)");
                         System.out.println(" ");
                     }
                 }
             }
-            if (avanco == posicao){
+            if (posicao == avanco){
                 System.out.println("Comando válido (°w°)");
                 System.out.println(" ");
             }
@@ -119,7 +126,7 @@ public class Sprint2 {
 
         else {
             System.out.println("Saída atingida");
-            System.out.println("Total de comandos usados: " + comando);
+            System.out.println("Total de comandos usados: " + contador);
             System.out.println("Distancia total percorrida foi de " + String.format("%.0f", valor));
             valor = valor * 0.5;
             System.out.println("O valor do percurso foi de: R$ " + String.format("%.2f", valor));
